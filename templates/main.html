@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="icon" href="{% static 'images/icon1.png' %}">
+    <title>Wordle</title>
+</head>
+<body>
+    <div class="header">
+        <div class="title"><h1>WORDLE</h1></div>
+        {% if request.user.is_authenticated %}
+        <div class="userinfo">
+            <button class="username dropbtn "><h3>{{request.user.username}}<span class="drop-arrow" style="font-size:17px; display:inline-block; padding-bottom: 2px;">&#11206</span></h3></button>
+            <div class="drop-content">
+                <div class="logout" >
+                <button class="logout-button" onclick="window.location.href=`{% url 'logout' %}`"><b>Logout</b></button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="main_body">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+    <script src="{% static 'scripts/script.js' %}"></script>
+</body>
+</html>

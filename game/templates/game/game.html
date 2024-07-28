@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="game-div">
+    <div class="wrong-letters-div">
+        <h3 class="wrong-letters-heading">Wrong Letters:</h3>
+        <p>{% for letter in letters %}{{letter}}&nbsp{% endfor %}</p>
+    </div>
+    <div class="guss-div">
+        {% for guss in max_guss%}
+        <div class="gusses">
+            {% for i in word_length %}
+            <div class="letter-div"><h1>G</h1></div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    <div></div>
+</div>
+
+{% endblock %}
